@@ -1,25 +1,33 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package napakalaki;
 
 import java.util.ArrayList;
 
 
 /**
- *
- * @author trouner
+ * Clase BadStuff
+ * Clase donde se guardan los atributos que afectan negativamente al jugador
+ * Cuando un monstruo te derrota te afecta un BadStuff que trae el mismo, esta
+ * es la clase que modela ese tipo de dato.
+ * 
  */
 public class BadStuff {
+    //String con el texto que explica el BadStuff
     private String text;
+    //Entero con el numero de niveles que va a perder el jugador
     private int levels = 0;
-    private int nVisibleTreasures = 0;  //cuando pierdes tesoros sin importar el que
-    private int nHiddenTreasures = 0;   //cuando pierdes tesoros sin importar el que
+    //Entero con el numero de tesoros visibles que va a perder el jugador sin importar el tipo de tesoro
+    private int nVisibleTreasures = 0;
+    //Entero con el numero de tesoros ocultos que va a perder el jugador sin importar el tipo de tesoro
+    private int nHiddenTreasures = 0;
+    //Booleano que nos dice si mueres o no
     private boolean death = false;
+    //Lista con los tipos específicos de tesoros ocultos que se van a perder
     private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
+    //Lista con los tipos específicos de tesoros visibles que se van a perder
     private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
 
+       
     public BadStuff(String text, int levels, ArrayList<TreasureKind> tVisible,
 ArrayList<TreasureKind> tHidden)
     {
