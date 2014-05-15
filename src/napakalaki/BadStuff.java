@@ -27,7 +27,15 @@ public class BadStuff {
     //Lista con los tipos específicos de tesoros visibles que se van a perder
     private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
 
-       
+    /**
+     *  Constuctor por parámetros que necesita un texto, niveles,
+     * una lista de tesoros ocultos y una lista de tesoros visibles
+     * 
+     * @param text String con el texto que representa el BadStuff
+     * @param levels Entero con el numero de niveles que se van a perder
+     * @param tVisible Lista de tipos de tesoros que el jugador va a perder
+     * @param tHidden Lista de tipos de tesoros que el jugador va a perder
+     */   
     public BadStuff(String text, int levels, ArrayList<TreasureKind> tVisible,
 ArrayList<TreasureKind> tHidden)
     {
@@ -37,6 +45,15 @@ ArrayList<TreasureKind> tHidden)
         this.specificVisibleTreasures = tVisible;
     }
   
+    /**
+     *  Constructor por parámetros con el texto, niveles, numero de tesoros ocultos 
+     * y numero de tesoros visibles
+     * 
+     * @param text String con el texto que representa el BadStuff
+     * @param levels Entero con el numero de niveles que se van a perder
+     * @param nVisible Entero con el numero de tesoros sin importar el tipo que el jugador va a perder
+     * @param nHidden Entero con el numero de tesoros sin importar el tipo que el jugador va a perder
+     */
     public BadStuff(String text, int levels, int nVisible, int nHidden)
     {
         this.text = text;
@@ -45,39 +62,74 @@ ArrayList<TreasureKind> tHidden)
         this.nHiddenTreasures = nHidden;
     }
     
+    /**
+     *  Constructor por parámetros con el texto y un booleano que indica muerte
+     * 
+     * @param text String con el texto que representa el BadStuff
+     * @param death Bool que indica si el jugador tiene que morir
+     */
     public BadStuff(String text, boolean death)
     {
         this.text = text;
         this.death = death;
     }
     
+    /**
+     *  Funcion para consultar el Texto del BadStuff
+     * @return Devuelve un String con el contenido de text 
+     */
     public String getText()
     {
         return this.text;
     }
-    
+    /**
+     * Funcion para consultar los Niveles del BadStuff
+     * @return Devuelve un int con los niveles a perder
+     */
     public int getLevels()
     {
         return this.levels;
     }
 
+    /**
+     * Funcion para consultar los Tesoros Ocultos genericos
+     * @return Devuelve un int con los Tesoros Ocultos genericos a perder
+     */
     public int getnHiddenTreasures() {
         return nHiddenTreasures;
     }
-
+    
+    /**
+     * Funcion para consultar los Tesoros Ocultos genericos
+     * @return Devuelve un int con los Tesoros Ocultos genericos a perder
+     */
+    public int getnVisibleTreasures() {
+        return nVisibleTreasures;
+    }
+    
+    /**
+     * Funcion para consultar los Tesoros Ocultos específicos
+     * @return Devuelve un ArrayList<TreasureKind> con los Tesoros Ocultos específicos a perder
+     * @see TreasureKind
+     */
     public ArrayList<TreasureKind> getSpecificHiddenTreasures() {
         return specificHiddenTreasures;
     }
-
+    
+     /**
+     * Funcion para consultar los Tesoros Visibles específicos
+     * @return Devuelve un ArrayList<TreasureKind> con los Tesoros Visibles específicos a perder
+     * @see TreasureKind
+     */
     public ArrayList<TreasureKind> getSpecificVisibleTreasures() {
         return specificVisibleTreasures;
     }
     
-
-    public int getnVisibleTreasures() {
-        return nVisibleTreasures;
-    }
-
+    
+    /**
+     * Funcion para consultar si el BadStuff es muerte o no
+     * @return false si no es muerte y true en caso contrario
+     */
     public boolean isDeath() {
         return death;
     }
