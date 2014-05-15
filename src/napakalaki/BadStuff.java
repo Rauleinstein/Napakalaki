@@ -115,7 +115,7 @@ ArrayList<TreasureKind> tHidden)
     public ArrayList<TreasureKind> getSpecificHiddenTreasures() {
         return specificHiddenTreasures;
     }
-    
+     
      /**
      * Funcion para consultar los Tesoros Visibles específicos
      * @return Devuelve un ArrayList<TreasureKind> con los Tesoros Visibles específicos a perder
