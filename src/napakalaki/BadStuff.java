@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Cuando un monstruo te derrota te afecta un BadStuff que trae el mismo, esta
  * es la clase que modela ese tipo de dato.
  * 
+ * @author Trouner
  */
 public class BadStuff {
     //String con el texto que explica el BadStuff
@@ -134,6 +135,10 @@ ArrayList<TreasureKind> tHidden)
         return death;
     }
     
+    /**
+     * Funcion que devuelve si un BadStuff está vacio o no 
+     * @return true si todos los elementos del BadStuff están vacios y false si no
+     */
     public boolean isEmpty(){
         boolean vacio = false;
         
@@ -147,6 +152,11 @@ ArrayList<TreasureKind> tHidden)
            
         return vacio;
     }
+    
+    /**
+     * Elimina un tesoro de la lista de tesoros visibles que tiene el BadStuff
+     * @param t tesoro con el que se va a quitar el tipo de la lista que tiene el BadStuff
+     */
     
     public void substractVisibleTreasure (Treasure t){
         
@@ -163,6 +173,11 @@ ArrayList<TreasureKind> tHidden)
         }
     }
     
+    /**
+     * Elimina un tesoro de la lista de tesoros ocultos que tiene el BadStuff
+     * @param t tesoro con el que se va a quitar el tipo de la lista que tiene el BadStuff
+     */
+    
     public void substractHiddenTreasure (Treasure t){
         
         if (nHiddenTreasures > 0)
@@ -178,9 +193,19 @@ ArrayList<TreasureKind> tHidden)
         }
     }
     
+    /**
+     * Funcion que comprueba si un BadStuff es de tipo muerte
+     * @return true si es de tipo muerte false en otro caso
+     */
+    
     public boolean myBadStuffIsDeath(){
         return death;
     }
+    
+    /**
+     * Funcion que transforma el tipo en un String
+     * @return Devuelve un String con todos los atributos del BadStuff
+     */
     
     public String toString()
     {
@@ -189,6 +214,13 @@ ArrayList<TreasureKind> tHidden)
                 + Integer.toString(this.nVisibleTreasures) + "Visible" + "\nTesoros visibles: " + this.specificVisibleTreasures.toString() +
                 "\nTesoros ocultos: " + this.specificHiddenTreasures.toString();
     }
+    
+    /**
+     * Coje un BadStuff y lo reduce para que concuerde con los tesoros que tiene un jugador
+     * @param v Lista de tesoros visibles
+     * @param h Lista de tesoros ocultos
+     * @return Un BadStuff acorde a las dos listas de tesoros que se le pasan
+     */
     
     public BadStuff adjustToFitTreasureList(final ArrayList<Treasure> v, final ArrayList<Treasure> h){
         

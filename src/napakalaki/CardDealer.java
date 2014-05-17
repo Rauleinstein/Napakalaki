@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- *
- * @author Alvaro
+ * Clase que maneja y da acceso a todas las funciones para el control de las 
+ * cartas del juego 
+ * 
+ * @author Trouner
  */
 public class CardDealer {
 
-    /*Se coloca una variable con el mismo nombre de la clase, por convenio se pone
+    /**
+     * Se coloca una variable con el mismo nombre de la clase, por convenio se pone
      * instance. Esta es la base del template singleton. Private para que no se acceda 
      * desde fuera de la clase
      */
@@ -269,6 +272,9 @@ public class CardDealer {
 
     }
     
+    /**
+     * Inicia el mazo de cartas de los cultistas
+     */
     private void initCultistCardDeck(){
         unusedCultist.add(new Cultist("Sectario1", 1));
         unusedCultist.add(new Cultist("Sectario2", 2));
@@ -358,7 +364,7 @@ public class CardDealer {
     }
 
     /**
-     * 
+     * Inicia todas las barajas de cartas y las mezcla
      */
     public void initCards() {
         this.initTreasureCardDeck();

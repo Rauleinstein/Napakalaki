@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package napakalaki;
 
 /**
- *
+ * Interfaz para el uso de BasicValue y SpecialValue
+ * 
  * @author trouner
  */
 public interface Card {
     
+    /**
+     * Funcion para acceder a la variable basica de una clase
+     */
     public int getBasicValue();
     
+    /**
+     * Funcion para acceder a la variable special de una clase
+     */
     public int getSpecialValue();
     
 }
