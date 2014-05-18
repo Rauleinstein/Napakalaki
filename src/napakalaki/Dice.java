@@ -7,7 +7,7 @@ import java.util.Random;
 import javax.swing.Timer;
 
 /**
- *
+ * Clase para el control del Dado y su GUI
  * @author fvelasco
  */
 public class Dice extends javax.swing.JDialog {
