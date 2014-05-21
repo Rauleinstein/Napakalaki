@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package napakalaki;
 
 import java.util.ArrayList;
 
 /**
- *
- * @author jose
+ * Clase Principal del juego que maneja todos los demás componentes
+ * @author Trouner
  */
 public class Napakalaki {
 
@@ -20,12 +15,19 @@ public class Napakalaki {
 
     private static Napakalaki instance = null;
 
+    /**
+     * Constructor por defecto
+     */
     private Napakalaki() {
         currentPlayer = null;
         currentMonster = null;
         dealer = CardDealer.getInstance();
     }
 
+    /**
+     * Crea el conjuto de jugadores de acuerdo a la lista de nombres
+     * @param names ArrayList<String> para iniciar los nombres de los jugadores
+     */
     private void initPlayers(ArrayList<String> names) {
         Player pl;
         for (String nombre : names) {
@@ -34,6 +36,11 @@ public class Napakalaki {
         }
     }
 
+    /**
+     * Funcion para saber cual es el siguiente jugador
+     * @return Devuelve un jugador aleatorio si es la primera vez que se invoca
+     * si no devuelve el siguente jugador en la lista y va ciclando. 
+     */
     private Player nextPlayer() {
         Player jugador;
         int indice = 0;
@@ -51,6 +58,10 @@ public class Napakalaki {
         return players.get(indice);
     }
 
+    /**
+     * Funcion booleana para indicar si un jugador puede pasar de turno
+     * @return Devuelve true si puede pasar de turno y false en caso contrario
+     */
     public boolean nextTurnAllowed() {
         if(currentPlayer == null)
             return true;
@@ -58,6 +69,10 @@ public class Napakalaki {
             return currentPlayer.validState();
     }
 
+    /**
+     * TO DO
+     * @return 
+     */
     public static Napakalaki getInstance() {
 
         if (instance == null) {
@@ -67,6 +82,13 @@ public class Napakalaki {
 
     }
 
+    /**
+     * Funcion que desarrolla el combate entre el jugador actual y el monstruo actual
+     * tambien decide si el jugador se tiene que convertir en cultista y lo hace. 
+     * @return Devuelve un enumerado del conjunto de CombatResult en función del resultado
+     * del combate
+     * @see CombatResult 
+     */
     public CombatResult developCombat() {
         CombatResult resultado;
         Cultist c;
@@ -82,6 +104,10 @@ public class Napakalaki {
         return resultado;
     }
 
+    /**
+     * 
+     * @param treasures 
+     */
     public void discardVisibleTreasures(ArrayList<Treasure> treasures) {
         for (Treasure tesoro : treasures) {
             currentPlayer.discardVisibleTreasure(tesoro);
